@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<Spellcard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ItemsSerializable>
+    <AccionBase xsi:type="MoverJefe">
+      <X>200</X>
+      <Y>320</Y>
+      <Frames>120</Frames>
+    </AccionBase>
+    <AccionBase xsi:type="CirculoShotA1">
+      <X>ObjMove_GetX(objEnemy)</X>
+      <Y>ObjMove_GetY(objEnemy)</Y>
+      <Speed>1</Speed>
+      <Direction>GetAngleToPlayer(objEnemy)</Direction>
+      <Graphic>DS_BALL_S_A_BLUE</Graphic>
+      <Delay>30</Delay>
+      <RandomX>50</RandomX>
+      <RandomY>0</RandomY>
+      <DefaultX>ObjMove_GetX(objEnemy)</DefaultX>
+      <DefaultY>ObjMove_GetY(objEnemy)</DefaultY>
+      <DefaultDirection>GetAngleToPlayer(objEnemy)</DefaultDirection>
+      <CantidadBalas>16</CantidadBalas>
+      <Repeticiones>30</Repeticiones>
+      <IntervaloRepeticiones>4</IntervaloRepeticiones>
+    </AccionBase>
+    <AccionBase xsi:type="Esperar">
+      <Frames>240</Frames>
+    </AccionBase>
+    <AccionBase xsi:type="MoverJefe">
+      <X>200</X>
+      <Y>50</Y>
+      <Frames>120</Frames>
+    </AccionBase>
+    <AccionBase xsi:type="CirculoShotA1">
+      <X>ObjMove_GetX(objEnemy)</X>
+      <Y>ObjMove_GetY(objEnemy)</Y>
+      <Speed>1</Speed>
+      <Direction>GetAngleToPlayer(objEnemy)</Direction>
+      <Graphic>DS_BALL_S_A_BLUE</Graphic>
+      <Delay>30</Delay>
+      <RandomX>50</RandomX>
+      <RandomY>0</RandomY>
+      <DefaultX>ObjMove_GetX(objEnemy)</DefaultX>
+      <DefaultY>ObjMove_GetY(objEnemy)</DefaultY>
+      <DefaultDirection>GetAngleToPlayer(objEnemy)</DefaultDirection>
+      <CantidadBalas>16</CantidadBalas>
+      <Repeticiones>30</Repeticiones>
+      <IntervaloRepeticiones>4</IntervaloRepeticiones>
+    </AccionBase>
+    <AccionBase xsi:type="CirculoShotA1">
+      <X>ObjMove_GetX(objEnemy)</X>
+      <Y>ObjMove_GetY(objEnemy)</Y>
+      <Speed>2</Speed>
+      <Direction>GetAngleToPlayer(objEnemy)</Direction>
+      <Graphic>DS_BALL_M_A_RED</Graphic>
+      <Delay>10</Delay>
+      <RandomX>0</RandomX>
+      <RandomY>0</RandomY>
+      <DefaultX>ObjMove_GetX(objEnemy)</DefaultX>
+      <DefaultY>ObjMove_GetY(objEnemy)</DefaultY>
+      <DefaultDirection>GetAngleToPlayer(objEnemy)</DefaultDirection>
+      <CantidadBalas>64</CantidadBalas>
+      <Repeticiones>1</Repeticiones>
+      <IntervaloRepeticiones>10</IntervaloRepeticiones>
+    </AccionBase>
+    <AccionBase xsi:type="Esperar">
+      <Frames>240</Frames>
+    </AccionBase>
+  </ItemsSerializable>
+</Spellcard>

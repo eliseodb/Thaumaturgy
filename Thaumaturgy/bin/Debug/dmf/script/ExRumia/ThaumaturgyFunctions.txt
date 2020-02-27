@@ -1,0 +1,87 @@
+function wait(n) {loop(n){yield;}}
+
+task TCirculoShotA1(x, y, speed, direction, graphic, delay, cantidad, repeticiones, intervalorepeticion, rx, ry, rspeed, rdirection, aspeed, apuntaraljugador, disparardesdeeljefe) {
+	loop(1) {
+        let angularspeed = 0;
+        loop (repeticiones) {
+            let randx = rand(-rx, rx);
+            let randy = rand(-ry, ry);
+            let randspeed = rand(-rspeed, rspeed);
+            let randdirection = rand(-rdirection, rdirection);
+
+            let cDirection = direction;
+            if (apuntaraljugador) {
+            	cDirection = GetAngleToPlayer(objEnemy) + randdirection + angularspeed;
+            }
+
+            let xreal = x;
+            let yreal = y;
+            if (disparardesdeeljefe) {
+                xreal = ObjMove_GetX(objEnemy);
+                yreal = ObjMove_GetY(objEnemy);
+            }
+
+            ascent (i in 0..cantidad) {
+                CreateShotA1(xreal+randx, yreal+randy, speed+randspeed, (i*360/cantidad)+cDirection+randdirection+angularspeed, graphic, delay);
+            }
+            wait(intervalorepeticion);
+
+
+            angularspeed += aspeed;
+        }
+    }
+}
+
+task EspejoHorizontal() {
+    let ratio = Get2DCameraRatioX();
+    if (ratio >= 1) {
+        ratio = 1;
+        loop(50) {
+            ratio -= 0.04;
+            Set2DCameraRatioX(ratio);
+            wait(1);
+        }
+    } else {
+        ratio = -1;
+        loop(50) {
+            ratio += 0.04;
+            Set2DCameraRatioX(ratio);
+            wait(1);
+        }
+    }
+}
+
+task EspejoVertical() {
+    let ratio = Get2DCameraRatioY();
+    if (ratio >= 1) {
+        ratio = 1;
+        loop(50) {
+            ratio -= 0.04;
+            Set2DCameraRatioY(ratio);
+            wait(1);
+        }
+    } else {
+        ratio = -1;
+        loop(50) {
+            ratio += 0.04;
+            Set2DCameraRatioY(ratio);
+            wait(1);
+        }
+    }
+}
+
+task PantallaGirar180Grados() {
+    let z = Get2DCameraAngleZ();
+    loop(60) {
+        z += 3;
+        Set2DCameraAngleZ(z);
+        wait(1);
+    }
+}
+
+task BorrarDisparos(frames) {
+    loop(frames) {
+        DeleteShotAll(TYPE_ALL, TYPE_ITEM);
+        wait(1);
+    }
+}

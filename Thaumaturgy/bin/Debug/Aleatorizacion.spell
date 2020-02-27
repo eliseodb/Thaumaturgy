@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<Spellcard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ItemsSerializable>
+    <AccionBase xsi:type="ShotA1">
+      <X>ObjMove_GetX(objEnemy)</X>
+      <Y>0</Y>
+      <Speed>2</Speed>
+      <Direction>90</Direction>
+      <Graphic>DS_BALL_BS_BLUE</Graphic>
+      <Delay>10</Delay>
+      <RandomX>200</RandomX>
+      <RandomY>0</RandomY>
+      <RandomDirection>10</RandomDirection>
+      <RandomSpeed>1</RandomSpeed>
+      <DefaultX>ObjMove_GetX(objEnemy)</DefaultX>
+      <DefaultY>ObjMove_GetY(objEnemy)</DefaultY>
+      <DefaultDirection>GetAngleToPlayer(objEnemy)</DefaultDirection>
+    </AccionBase>
+    <AccionBase xsi:type="Esperar">
+      <Frames>2</Frames>
+    </AccionBase>
+  </ItemsSerializable>
+</Spellcard>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<Spellcard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ItemsSerializable>
+    <AccionBase xsi:type="CirculoShotA1">
+      <X>ObjMove_GetX(objEnemy)</X>
+      <Y>ObjMove_GetY(objEnemy)</Y>
+      <Speed>2</Speed>
+      <Direction>0</Direction>
+      <Graphic>DS_BALL_BS_BLUE</Graphic>
+      <Delay>10</Delay>
+      <RandomX>0</RandomX>
+      <RandomY>0</RandomY>
+      <RandomDirection>0</RandomDirection>
+      <RandomSpeed>0</RandomSpeed>
+      <DefaultX>ObjMove_GetX(objEnemy)</DefaultX>
+      <DefaultY>ObjMove_GetY(objEnemy)</DefaultY>
+      <DefaultDirection>GetAngleToPlayer(objEnemy)</DefaultDirection>
+      <CantidadBalas>16</CantidadBalas>
+      <AngularSpeed>0</AngularSpeed>
+      <Repeticiones>20</Repeticiones>
+      <IntervaloRepeticiones>5</IntervaloRepeticiones>
+      <ApuntarAlJugador>false</ApuntarAlJugador>
+      <DispararDesdeElJefe>true</DispararDesdeElJefe>
+    </AccionBase>
+    <AccionBase xsi:type="EspejoHorizontal" />
+    <AccionBase xsi:type="Esperar">
+      <Frames>60</Frames>
+    </AccionBase>
+    <AccionBase xsi:type="EspejoVertical" />
+    <AccionBase xsi:type="Esperar">
+      <Frames>60</Frames>
+    </AccionBase>
+  </ItemsSerializable>
+</Spellcard>

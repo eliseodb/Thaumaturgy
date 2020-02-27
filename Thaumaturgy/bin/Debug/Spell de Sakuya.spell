@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<Spellcard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ItemsSerializable>
+    <AccionBase xsi:type="MoverJefe">
+      <X>50</X>
+      <Y>430</Y>
+      <Frames>60</Frames>
+    </AccionBase>
+    <AccionBase xsi:type="CirculoShotA1">
+      <X />
+      <Y />
+      <Speed>2</Speed>
+      <Direction />
+      <Graphic>DS_KNIFE_KOUMA_BLUE</Graphic>
+      <Delay>10</Delay>
+      <DefaultX>ObjMove_GetX(objEnemy)</DefaultX>
+      <DefaultY>ObjMove_GetY(objEnemy)</DefaultY>
+      <DefaultDirection>GetAngleToPlayer(objEnemy)</DefaultDirection>
+      <CantidadBalas>32</CantidadBalas>
+      <Repeticiones>12</Repeticiones>
+      <IntervaloRepeticiones>3</IntervaloRepeticiones>
+    </AccionBase>
+    <AccionBase xsi:type="MoverJefe">
+      <X>210</X>
+      <Y>50</Y>
+      <Frames>60</Frames>
+    </AccionBase>
+    <AccionBase xsi:type="Esperar">
+      <Frames>120</Frames>
+    </AccionBase>
+    <AccionBase xsi:type="MoverJefe">
+      <X>430</X>
+      <Y>430</Y>
+      <Frames>60</Frames>
+    </AccionBase>
+    <AccionBase xsi:type="CirculoShotA1">
+      <X />
+      <Y />
+      <Speed>2</Speed>
+      <Direction />
+      <Graphic>DS_KUNAI_RED</Graphic>
+      <Delay>10</Delay>
+      <DefaultX>ObjMove_GetX(objEnemy)</DefaultX>
+      <DefaultY>ObjMove_GetY(objEnemy)</DefaultY>
+      <DefaultDirection>GetAngleToPlayer(objEnemy)</DefaultDirection>
+      <CantidadBalas>60</CantidadBalas>
+      <Repeticiones>12</Repeticiones>
+      <IntervaloRepeticiones>3</IntervaloRepeticiones>
+    </AccionBase>
+    <AccionBase xsi:type="MoverJefe">
+      <X>210</X>
+      <Y>50</Y>
+      <Frames>60</Frames>
+    </AccionBase>
+    <AccionBase xsi:type="Esperar">
+      <Frames>120</Frames>
+    </AccionBase>
+    <AccionBase xsi:type="CirculoShotA1">
+      <X />
+      <Y />
+      <Speed>2</Speed>
+      <Direction />
+      <Graphic>DS_BALL_L_RED</Graphic>
+      <Delay>10</Delay>
+      <DefaultX>ObjMove_GetX(objEnemy)</DefaultX>
+      <DefaultY>ObjMove_GetY(objEnemy)</DefaultY>
+      <DefaultDirection>GetAngleToPlayer(objEnemy)</DefaultDirection>
+      <CantidadBalas>32</CantidadBalas>
+      <Repeticiones>5</Repeticiones>
+      <IntervaloRepeticiones>15</IntervaloRepeticiones>
+    </AccionBase>
+  </ItemsSerializable>
+</Spellcard>

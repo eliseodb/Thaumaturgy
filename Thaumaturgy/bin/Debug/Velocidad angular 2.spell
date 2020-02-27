@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<Spellcard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ItemsSerializable>
+    <AccionBase xsi:type="CirculoShotA1">
+      <X>ObjMove_GetX(objEnemy)</X>
+      <Y>ObjMove_GetY(objEnemy)</Y>
+      <Speed>2</Speed>
+      <Direction>0</Direction>
+      <Graphic>DS_BILL_GREEN</Graphic>
+      <Delay>10</Delay>
+      <RandomX>0</RandomX>
+      <RandomY>0</RandomY>
+      <RandomDirection>0</RandomDirection>
+      <RandomSpeed>0</RandomSpeed>
+      <DefaultX>ObjMove_GetX(objEnemy)</DefaultX>
+      <DefaultY>ObjMove_GetY(objEnemy)</DefaultY>
+      <DefaultDirection>GetAngleToPlayer(objEnemy)</DefaultDirection>
+      <CantidadBalas>4</CantidadBalas>
+      <AngularSpeed>5.1</AngularSpeed>
+      <Repeticiones>240</Repeticiones>
+      <IntervaloRepeticiones>1</IntervaloRepeticiones>
+    </AccionBase>
+    <AccionBase xsi:type="Esperar">
+      <Frames>120</Frames>
+    </AccionBase>
+    <AccionBase xsi:type="MoverJefe">
+      <X>200</X>
+      <Y>230</Y>
+      <Frames>60</Frames>
+    </AccionBase>
+    <AccionBase xsi:type="Esperar">
+      <Frames>60</Frames>
+    </AccionBase>
+    <AccionBase xsi:type="CirculoShotA1">
+      <X>ObjMove_GetX(objEnemy)</X>
+      <Y>ObjMove_GetY(objEnemy)</Y>
+      <Speed>2</Speed>
+      <Direction>90</Direction>
+      <Graphic>DS_BALL_M_A_YELLOW</Graphic>
+      <Delay>10</Delay>
+      <RandomX>0</RandomX>
+      <RandomY>0</RandomY>
+      <RandomDirection>0</RandomDirection>
+      <RandomSpeed>0</RandomSpeed>
+      <DefaultX>ObjMove_GetX(objEnemy)</DefaultX>
+      <DefaultY>ObjMove_GetY(objEnemy)</DefaultY>
+      <DefaultDirection>GetAngleToPlayer(objEnemy)</DefaultDirection>
+      <CantidadBalas>5</CantidadBalas>
+      <AngularSpeed>-2</AngularSpeed>
+      <Repeticiones>140</Repeticiones>
+      <IntervaloRepeticiones>3</IntervaloRepeticiones>
+    </AccionBase>
+    <AccionBase xsi:type="Esperar">
+      <Frames>60</Frames>
+    </AccionBase>
+    <AccionBase xsi:type="MoverJefe">
+      <X>200</X>
+      <Y>50</Y>
+      <Frames>60</Frames>
+    </AccionBase>
+    <AccionBase xsi:type="Esperar">
+      <Frames>60</Frames>
+    </AccionBase>
+  </ItemsSerializable>
+</Spellcard>

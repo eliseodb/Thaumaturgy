@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<Spellcard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ItemsSerializable>
+    <AccionBase xsi:type="CirculoShotA1">
+      <X>ObjMove_GetX(objEnemy)</X>
+      <Y>ObjMove_GetY(objEnemy)</Y>
+      <Speed>2</Speed>
+      <Direction>GetAngleToPlayer(objEnemy)</Direction>
+      <Graphic>DS_BILL_RED</Graphic>
+      <Delay>30</Delay>
+      <RandomX>200</RandomX>
+      <RandomY>50</RandomY>
+      <RandomDirection>10</RandomDirection>
+      <RandomSpeed>1</RandomSpeed>
+      <DefaultX>ObjMove_GetX(objEnemy)</DefaultX>
+      <DefaultY>ObjMove_GetY(objEnemy)</DefaultY>
+      <DefaultDirection>GetAngleToPlayer(objEnemy)</DefaultDirection>
+      <CantidadBalas>80</CantidadBalas>
+      <Repeticiones>1</Repeticiones>
+      <IntervaloRepeticiones>10</IntervaloRepeticiones>
+    </AccionBase>
+    <AccionBase xsi:type="Esperar">
+      <Frames>60</Frames>
+    </AccionBase>
+  </ItemsSerializable>
+</Spellcard>

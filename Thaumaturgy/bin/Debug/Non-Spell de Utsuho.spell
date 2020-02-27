@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<Spellcard xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ItemsSerializable>
+    <AccionBase xsi:type="CirculoShotA1">
+      <X />
+      <Y />
+      <Speed>5</Speed>
+      <Direction>0</Direction>
+      <Graphic>DS_BALL_S_A_YELLOW</Graphic>
+      <Delay>10</Delay>
+      <DefaultX>ObjMove_GetX(objEnemy)</DefaultX>
+      <DefaultY>ObjMove_GetY(objEnemy)</DefaultY>
+      <DefaultDirection>GetAngleToPlayer(objEnemy)</DefaultDirection>
+      <CantidadBalas>80</CantidadBalas>
+      <Repeticiones>60</Repeticiones>
+      <IntervaloRepeticiones>2</IntervaloRepeticiones>
+    </AccionBase>
+    <AccionBase xsi:type="Esperar">
+      <Frames>60</Frames>
+    </AccionBase>
+  </ItemsSerializable>
+</Spellcard>

@@ -1,0 +1,157 @@
+#TouhouDanmakufu[Single]
+#ScriptVersion[3]
+#Title["Prueba Thaumaturgy"]
+#Text["Una spellcard de prueba hecha con Thaumaturgy"]
+#Image["./ExRumia(星符「ミッドナイトレヴァリエ」).jpg"]
+#Background["./SanaeB.dnh"]
+#BGM[DEFAULT]
+#Player[DEFAULT]
+#include"script/default_system/Default_ShotConst.txt"
+#include"script/default_system/Default_Effect.txt"
+#include"./ThaumaturgyFunctions.txt"
+
+let objEnemy;
+let bConcentrationMotion = false;
+@Initialize
+{
+	objEnemy = ObjEnemy_Create(OBJ_ENEMY_BOSS);
+	ObjEnemy_Regist(objEnemy);
+	ObjEnemy_SetDamageRate(objEnemy, 10, 10);//披ダメージを10%に設定
+	TWork;
+	TRender;
+	TEnd;
+
+	DeleteShotAll(TYPE_ALL, TYPE_ITEM);//出現と同時に敵弾を全て削除	
+}
+
+@MainLoop
+{
+	let ex = ObjMove_GetX(objEnemy);
+	let ey = ObjMove_GetY(objEnemy);
+	ObjEnemy_SetIntersectionCircleToShot(objEnemy, ex, ey, 32);//当たり判定(自弾)登録
+	ObjEnemy_SetIntersectionCircleToPlayer(objEnemy, ex, ey, 24);//当たり判定(体当たり)登録
+
+	yield;
+}
+
+@Event
+{
+	alternative(GetEventType())
+	case(EV_REQUEST_LIFE)
+	{
+		SetScriptResult(300);//ライフを1500に設定
+	}
+	case(EV_REQUEST_TIMER)
+	{
+		SetScriptResult(60);//時間制限を60秒に設定
+	}
+	case(EV_REQUEST_SPELL_SCORE)
+	{
+		SetScriptResult(30000);//スペルカードボーナスを30000に設定
+	}
+}
+
+//----------------------------------------------------
+//敵動作
+//----------------------------------------------------
+task TWork
+{
+//	Concentration01(150);
+//	CutIn(YOUMU,"星符「ミッドナイトレヴァリエ」",0,0,0,0,0);//スペルカード名表示
+
+	//座標(cx, 60)へ60フレームかけて移動する
+	let cx = GetStgFrameWidth() / 2;//STGシーンの中心x座標を取得
+	ObjMove_SetDestAtFrame(objEnemy, cx, 60, 60);
+	loop(60){yield;}
+
+	let objScene = GetEnemyBossSceneObjectID();
+	ObjEnemyBossScene_StartSpell(objScene);
+
+
+	let ex = ObjMove_GetX(objEnemy);
+	let ey = ObjMove_GetY(objEnemy);
+
+	while(!Obj_IsDeleted(objEnemy))
+	{
+		ex = ObjMove_GetX(objEnemy);
+		ey = ObjMove_GetY(objEnemy);
+
+		TCirculoShotA1(ObjMove_GetX(objEnemy), ObjMove_GetY(objEnemy), 2, GetAngleToPlayer(objEnemy), DS_BILL_RED, 30, 80, 1, 10, 200, 50, 1, 10, 0, true, true);
+wait(60);
+
+
+		wait(1);
+	}
+}
+
+//----------------------------------------------------
+//描画タスク
+//----------------------------------------------------
+task TRender
+{
+	let imgExRumia = GetCurrentScriptDirectory~"ExRumia.png";
+	ObjPrim_SetTexture(objEnemy, imgExRumia);
+
+	while(!Obj_IsDeleted(objEnemy))
+	{
+		let angle = ObjMove_GetAngle(objEnemy);
+		let speed = ObjMove_GetSpeed(objEnemy);
+		if(speed == 0)
+		{
+			if(bConcentrationMotion)
+			{
+				ObjSprite2D_SetSourceRect(objEnemy, 64, 1, 127, 64);
+			}
+			else
+			{
+				ObjSprite2D_SetSourceRect(objEnemy, 1, 1, 64, 64);
+			}
+		}
+		else if(cos(angle) > 0){ObjSprite2D_SetSourceRect(objEnemy, 192, 1, 255, 64);}
+		else if(cos(angle) < 0){ObjSprite2D_SetSourceRect(objEnemy, 128 ,1, 191, 64);}
+		ObjSprite2D_SetDestCenter(objEnemy);
+
+		yield;
+	}
+
+}
+
+//----------------------------------------------------
+//弾関連
+//----------------------------------------------------
+task TDisparar() {
+	let ex = ObjMove_GetX(objEnemy);
+	let ey = ObjMove_GetY(objEnemy);
+
+	CreateShotA1(ex, ey, 2, 90, DS_BALL_M_BLUE, 10);
+	wait(10);
+}
+
+//----------------------------------------------------
+//終了待機タスク
+//----------------------------------------------------
+task TEnd
+{
+	while(ObjEnemy_GetInfo(objEnemy, INFO_LIFE) > 0)
+	{
+		yield;
+	}
+
+	if (Get2DCameraRatioX() < 0) {
+		EspejoHorizontal();
+	}
+	if (Get2DCameraRatioY() < 0) {
+		EspejoVertical();
+	}
+
+	let ex = ObjMove_GetX(objEnemy);
+	let ey = ObjMove_GetY(objEnemy);
+	TExplosionA(ex, ey, 10, 0.6);
+	BorrarDisparos(100);
+	//DeleteShotAll(TYPE_ALL, TYPE_ITEM);//敵弾を全て削除	
+	Obj_Delete(objEnemy);
+
+	loop(100){yield;}
+
+	CloseScript(GetOwnScriptID());
+}
